@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.tasks_kanri;
+import models.Tasks_kanri;
 import utils.DBUtil;
 
 
@@ -35,7 +35,7 @@ public class CreateServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
             em.getTransaction().begin();
 
-            tasks_kanri m = new tasks_kanri();
+            Tasks_kanri m = new Tasks_kanri();
 
 
             String content = request.getParameter("content");
