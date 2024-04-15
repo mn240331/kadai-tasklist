@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.tasks_kanri;
+import models.Tasks_kanri;
 
 
 @WebServlet("/new")
@@ -26,7 +26,7 @@ public class NewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         // おまじないとしてのインスタンスを生成
-        request.setAttribute("tasks_kanri", new tasks_kanri());
+        request.setAttribute("Tasks_kanri", new Tasks_kanri());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);
