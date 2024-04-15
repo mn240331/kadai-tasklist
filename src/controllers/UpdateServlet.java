@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.tasks_kanri;
+import models.Tasks_kanri;
 import utils.DBUtil;
 
 @WebServlet("/update")
@@ -28,9 +28,10 @@ public class UpdateServlet extends HttpServlet {
 
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
-            tasks_kanri m = em.find(tasks_kanri.class, (Integer)(request.getSession().getAttribute("tasks_kanri_id")));
+            Tasks_kanri m = em.find(Tasks_kanri.class, (Integer)(request.getSession().getAttribute("Tasks_kanri_id")));
 
             // フォームの内容を各フィールドに上書き
+
             String content = request.getParameter("content");
             m.setContent(content);
 
@@ -43,7 +44,7 @@ public class UpdateServlet extends HttpServlet {
             em.close();
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("tasks_kanri_id");
+            request.getSession().removeAttribute("Tasks_kanri_id");
 
             // indexページへリダイレクト
             response.sendRedirect(request.getContextPath() + "/index");
