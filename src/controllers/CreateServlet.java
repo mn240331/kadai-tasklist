@@ -17,7 +17,6 @@ import models.Tasks_kanri;
 import models.validators.Tasks_kanriValidator;
 import utils.DBUtil;
 
-
 @WebServlet("/create")
 public class CreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -26,9 +25,10 @@ public class CreateServlet extends HttpServlet {
         super();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String _token = request.getParameter("_token");
-        if(_token != null && _token.equals(request.getSession().getId())) {
+        if (_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
             em.getTransaction().begin();
 
@@ -41,10 +41,9 @@ public class CreateServlet extends HttpServlet {
             m.setCreated_at(currentTime);
             m.setUpdated_at(currentTime);
 
-
             // バリデーションを実行してエラーがあったら新規登録のフォームに戻る
             List<String> errors = Tasks_kanriValidator.validate(m);
-            if(errors.size() > 0) {
+            if (errors.size() > 0) {
                 em.close();
                 // フォームに初期値を設定、さらにエラーメッセージを送る
                 request.setAttribute("_token", request.getSession().getId());
@@ -63,6 +62,6 @@ public class CreateServlet extends HttpServlet {
                 // indexのページにリダイレクト
                 response.sendRedirect(request.getContextPath() + "/index");
             }
-       }
+        }
     }
 }
