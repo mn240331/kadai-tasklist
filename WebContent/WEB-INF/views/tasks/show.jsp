@@ -5,7 +5,7 @@
     <c:param name="content">
         <c:choose>
             <c:when test="${Tasks_kanri != null}">
-                <h2>id : ${Tasks_kanri.id} のメッセージ詳細ページ</h2>
+                <h2>id : ${Tasks_kanri.id} のタスク詳細ページ</h2>
 
                 <table>
                     <tbody>
@@ -25,7 +25,7 @@
                 </table>
 
                 <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
-                <p><a href="${pageContext.request.contextPath}/edit?id=${Tasks_kanri.id}">このメッセージを編集する</a></p>
+                <p><a href="${pageContext.request.contextPath}/edit?id=${Tasks_kanri.id}">このタスクを編集する</a></p>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>
