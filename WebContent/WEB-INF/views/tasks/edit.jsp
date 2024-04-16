@@ -1,18 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:choose>
             <c:when test="${Tasks_kanri != null}">
                 <h2>id : ${Tasks_kanri.id} のタスク編集ページ</h2>
 
-                <form method="POST" action="${pageContext.request.contextPath}/update">
+                <form method="POST"
+                    action="${pageContext.request.contextPath}/update">
                     <c:import url="_form.jsp" />
                 </form>
 
-                <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
-                <p><a href="#" onclick="confirmDestroy();">このタスクを削除する</a></p>
-                <form method="POST" action="${pageContext.request.contextPath}/destroy">
+                <p>
+                    <a href="${pageContext.request.contextPath}/index">一覧に戻る</a>
+                </p>
+                <p>
+                    <a href="#" onclick="confirmDestroy();">このタスクを削除する</a>
+                </p>
+                <form method="POST"
+                    action="${pageContext.request.contextPath}/destroy">
                     <input type="hidden" name="_token" value="${_token}" />
                 </form>
                 <script>

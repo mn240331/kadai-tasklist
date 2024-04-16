@@ -13,18 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import models.Tasks_kanri;
 import utils.DBUtil;
 
-
 @WebServlet("/edit")
 public class EditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
 
     public EditServlet() {
         super();
     }
 
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
         // 該当のIDのタスク管理1件のみをデータベースから取得
@@ -37,8 +35,8 @@ public class EditServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         // タスク管理データが存在しているときのみ
-        // メッセージIDをセッションスコープに登録
-        if(m != null) {
+        // タスクIDをセッションスコープに登録
+        if (m != null) {
             request.getSession().setAttribute("Tasks_kanri_id", m.getId());
         }
 
