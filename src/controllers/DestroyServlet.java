@@ -12,11 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import models.Tasks_kanri;
 import utils.DBUtil;
 
-
 @WebServlet("/destroy")
 public class DestroyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
 
     public DestroyServlet() {
         super();
@@ -28,12 +26,13 @@ public class DestroyServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
 
             // セッションスコープからメッセージのIDを取得して
-            // 該当のIDのメッセージ1件のみをデータベースから取得
+            // 該当のIDのタスク管理1件のみをデータベースから取得
             Tasks_kanri m = em.find(Tasks_kanri.class, (Integer)(request.getSession().getAttribute("Tasks_kanri_id")));
 
             em.getTransaction().begin();
             em.remove(m);       // データ削除
             em.getTransaction().commit();
+            request.getSession().setAttribute("flush", "削除が完了しました。");       // ここを追記
             em.close();
 
             // セッションスコープ上の不要になったデータを削除
