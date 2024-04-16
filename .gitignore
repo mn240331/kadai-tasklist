@@ -18,4 +18,5 @@ build/
 # OS Files
 Thumbs.db
 .DS_Store
+
 .gradle/
