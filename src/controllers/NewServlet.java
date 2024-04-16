@@ -11,17 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Tasks_kanri;
 
-
 @WebServlet("/new")
 public class NewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
 
     public NewServlet() {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         // CSRF対策
         request.setAttribute("_token", request.getSession().getId());
 
@@ -30,5 +29,5 @@ public class NewServlet extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);
-     }
+    }
 }
