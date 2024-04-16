@@ -13,14 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(
-            name = "getAlltasks",
-            query = "SELECT m FROM Tasks_kanri AS m ORDER BY m.id DESC"
-            ),
-    @NamedQuery(
-            name = "gettasksCount",
-            query = "SELECT COUNT(m) FROM Tasks_kanri AS m"
-            )
+        @NamedQuery(name = "getAlltasks", query = "SELECT m FROM Tasks_kanri AS m ORDER BY m.id DESC"),
+        @NamedQuery(name = "gettasksCount", query = "SELECT COUNT(m) FROM Tasks_kanri AS m")
 })
 @Table(name = "tasks")
 public class Tasks_kanri {
@@ -45,7 +39,6 @@ public class Tasks_kanri {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public String getContent() {
         return content;
