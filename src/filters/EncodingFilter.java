@@ -14,16 +14,13 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter("/*")
 public class EncodingFilter implements Filter {
 
-
     public EncodingFilter() {
 
     }
 
-
     public void destroy() {
 
     }
-
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
@@ -31,7 +28,6 @@ public class EncodingFilter implements Filter {
 
         chain.doFilter(request, response);
     }
-
 
     public void init(FilterConfig fConfig) throws ServletException {
 
