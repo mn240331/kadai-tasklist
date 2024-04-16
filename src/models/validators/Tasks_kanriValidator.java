@@ -11,7 +11,7 @@ public class Tasks_kanriValidator {
         List<String> errors = new ArrayList<String>();
 
         String content_error = validateContent(m.getContent());
-        if(!content_error.equals("")) {
+        if (!content_error.equals("")) {
             errors.add(content_error);
         }
 
@@ -20,7 +20,7 @@ public class Tasks_kanriValidator {
 
     //  タスク内容の必須入力チェック
     private static String validateContent(String content) {
-        if(content == null || content.equals("")) {
+        if (content == null || content.equals("")) {
             return "タスク内容を入力してください。";
         }
 
