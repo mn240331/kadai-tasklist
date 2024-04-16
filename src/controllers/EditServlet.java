@@ -39,7 +39,7 @@ public class EditServlet extends HttpServlet {
         // タスク管理データが存在しているときのみ
         // メッセージIDをセッションスコープに登録
         if(m != null) {
-            request.getSession().setAttribute("tasks_kanri_id", m.getId());
+            request.getSession().setAttribute("Tasks_kanri_id", m.getId());
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
