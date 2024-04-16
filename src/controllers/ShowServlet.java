@@ -13,18 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import models.Tasks_kanri;
 import utils.DBUtil;
 
-
 @WebServlet("/show")
 public class ShowServlet extends HttpServlet {
-        private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = 1L;
 
     public ShowServlet() {
         super();
     }
 
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
         // 該当のIDのタスク管理1件のみをデータベースから取得
